@@ -66,6 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let textTable = ``;
         let textErrors = ``;
 
+        console.log(result);
+        
+        
+
         result.tokens.forEach((token, index) => {
             textTable += `
             <tr>
@@ -82,10 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
             textErrors += `
             <tr>
                 <td> ${index + 1} </td>
-                <td> ${token.typeTokenString} </td>
-                <td> ${token.lexeme} </td>
-                <td> ${token.row} </td>
-                <td> ${token.column} </td>
+                <td> ${error.typeTokenString} </td>
+                <td> ${error.lexeme} </td>
+                <td> ${error.row} </td>
+                <td> ${error.column} </td>
             </tr>
             `;
         });
@@ -93,17 +97,20 @@ document.addEventListener('DOMContentLoaded', () => {
         table.innerHTML = textTable;
         tableError.innerHTML = textErrors;
         editor.innerHTML = result.colors;
-
+        
+        
         if (result.syntacticErrors.length === 0) {
 
             salida.innerText = result.traduction;
 
         } else {
+            //Aca se va a trabajar los errores sictacticos
 
-            alert('La entrada tiene errores léxicos');
+            alert('La entrada tiene errores sintacticos');
 
-            localStorage.setItem('errors', JSON.stringify(result.errors));
+            localStorage.setItem('syntacticErrors', JSON.stringify(result.syntacticErrors));
         }
+        
 
     });
 
