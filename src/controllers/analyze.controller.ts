@@ -35,6 +35,10 @@ export const analyze = (req: Request, res: Response) => {
             code += instruction.transpiler();
         });
     }
+    console.log(errorParser);
+    console.log(scanner.getErrorList());
+    
+    
 
     res.json({
         tokens: tokenList,
