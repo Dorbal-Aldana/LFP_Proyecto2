@@ -94,6 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         });
 
+        console.log(result.colors);
+        
         table.innerHTML = textTable;
         tableError.innerHTML = textErrors;
         editor.innerHTML = result.colors;

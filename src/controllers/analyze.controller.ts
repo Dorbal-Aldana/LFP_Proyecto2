@@ -10,6 +10,10 @@ export const home = (req: Request, res: Response) => {
     res.render('pages/index');
 }
 
+export const error = (req: Request, res: Response) => {
+    res.render('pages/syntacticError');
+}
+
 export const analyze = (req: Request, res: Response) => {
     const body = req.body;
 
